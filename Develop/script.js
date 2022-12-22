@@ -6,6 +6,7 @@ var generatePassword = function () {
   var uppercase = "ABCDEFGHIJKLMNNOPQRSTUVWXYZ";
   var numeric = "123456789";
   var special = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+  var newPass = "";
 
   // Promt for password length
   do {
@@ -26,6 +27,21 @@ do {
   var promptNum = window.confirm("Would you like to include numbers?")
   var promptSpecial = window.confirm("Would you like to include special characters?")
 
+  if (promptLower) {
+    charSet += lowercase
+  }
+  if (promptUpper) {
+    charSet += uppercase
+  }
+
+  if (promptNum) {
+    charSet += numeric
+  }
+
+  if (promptSpecial) {
+    charSet += special
+  }
+
   // Get references to the #generate element
   // var generateBtn = document.querySelector("#generate");
 
@@ -37,6 +53,13 @@ do {
   //   passwordText.value = password;
 
   } while (!promptLower, !promptUpper, !promptNum, !promptSpecial); 
+  for (var i = 0; i < passLength; i++) {
+    newPass += charSet[Math.floor(Math.random() * charSet.length)]
+  } 
+  console.log(newPass); 
+  return newPass;
+};
+  
 
   // Write password to the #password input
   function writePassword() {
@@ -47,9 +70,9 @@ do {
     console.log(password);
 
   }
-}
+
 var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener("click", generatePassword);
+generateBtn.addEventListener("click", writePassword);
 
 
 
