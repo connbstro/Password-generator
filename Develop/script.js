@@ -13,29 +13,55 @@ var generatePassword = function () {
     // creating expression to see if passLength is not a number
     if (passLength < 8 || passLength > 128) {
       // alerts uers if entry is not between 8 and 128
-      alert("You must enter in a number between 8 and 128!");
+      alert("Must enter in a number between 8 and 128!");
     }
   } while (passLength < 8 || passLength > 128);
 
-  do {
 
-    // prompt for password criteria
-    var promptLower = window.confirm("Would you like to include lowercase letters?")
-    var promptUpper = window.confirm("Would you like to include uppercase letters?")
-    var promptNum = window.confirm("Would you like to include numbers?")
-    var promptSpecial = window.confirm("Would you like to include special characters?")
+do {
 
-    // Get references to the #generate element
-    var generateBtn = document.querySelector("#generate");
+  // prompt for password criteria
+  var promptLower = window.confirm("Would you like to include lowercase letters?")
+  var promptUpper = window.confirm("Would you like to include uppercase letters?")
+  var promptNum = window.confirm("Would you like to include numbers?")
+  var promptSpecial = window.confirm("Would you like to include special characters?")
 
-    // Write password to the #password input
-    function writePassword() {
-      var password = generatePassword();
-      var passwordText = document.querySelector("#password");
+  // Get references to the #generate element
+  // var generateBtn = document.querySelector("#generate");
 
-      passwordText.value = password;
+  // // Write password to the #password input
+  // function writePassword() {
+  //   var password = generatePassword();
+  //   var passwordText = document.querySelector("#password");
 
-    }
+  //   passwordText.value = password;
 
-    // Add event listener to generate button
-    generateBtn.addEventListener("click", writePassword);
+  } while (!promptLower, !promptUpper, !promptNum, !promptSpecial); 
+
+  // Write password to the #password input
+  function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+
+    passwordText.value = password;
+    console.log(password);
+
+  }
+}
+var generateBtn = document.querySelector("#generate");
+generateBtn.addEventListener("click", generatePassword);
+
+
+
+// var generatePassword = function () {
+  
+// }
+
+
+
+
+  // } while (
+
+  //   // Add event listener to generate button
+  //   generateBtn.addEventListener("click", writePassword))}
+
