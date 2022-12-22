@@ -1,4 +1,11 @@
 // Assignment code here
+var generatePassword = function () {
+  var passLength = 0;
+  var charSet = "";
+  var lowercase = "abcdefghijklmnnopqrstuvwxyz";
+  var uppercase = "ABCDEFGHIJKLMNNOPQRSTUVWXYZ";
+  var numeric = "123456789";
+  var special = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 
 
 // Get references to the #generate element
